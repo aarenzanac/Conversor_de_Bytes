@@ -7,11 +7,14 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Introduzca la cantidad a convertir: "
+        android:text="Introduzca la cantidad a convertir así como el tipo de unidad introducida:"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
+        android:paddingLeft="20dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,6 +22,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053" />
 
-    //esta es una prueba de github
+    <com.google.android.material.textfield.TextInputLayout
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/textInputLayout"
+        android:id="@+id/textInputLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
+        tools:layout_editor_absoluteX="1dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputCantidad"
+            android:layout_width="146dp"
+            android:layout_height="48dp"
+            android:hint="Cantidad"
+            android:inputType="numberDecimal"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
