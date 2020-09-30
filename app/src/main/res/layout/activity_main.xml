@@ -10,9 +10,11 @@
         android:id="@+id/textViewCantidad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
         android:paddingLeft="20dp"
+        android:paddingEnd="10dp"
         android:paddingRight="10dp"
-        android:text="Introduzca la cantidad a convertir:"
+        android:text="@string/introduzca_la_cantidad_a_convertir"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,23 +23,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutCantidad"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:layout_constraintEnd_toEndOf="@id/textInputLayoutCantidad"
-            android:gravity="center_horizontal"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCantidad">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutCantidad"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="@id/textInputLayoutCantidad"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCantidad">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputCantidad"
-                android:layout_width="146dp"
-                android:layout_height="48dp"
-                android:hint="Cantidad"
-                android:inputType="numberDecimal" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputCantidad"
+            android:layout_width="146dp"
+            android:layout_height="48dp"
+            android:hint="@string/cantidad"
+            android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -45,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Introduzca las unidades origen y destino:"
+        android:text="@string/introduzca_las_unidades_origen_y_destino"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -60,31 +62,90 @@
         android:id="@+id/textViewUnidadesOrigen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:text="De:"
+        android:layout_marginTop="15dp"
+        android:text="@string/de"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@id/textViewUnidades"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUnidades"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewUnidades"
+        app:layout_constraintVertical_bias="0.029" />
 
     <TextView
         android:id="@+id/textViewUnidadesDestino"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="A :"
+        android:text="@string/a"
         android:textColor="@android:color/background_dark"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUnidades"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintVertical_bias="0.029" />
+
+    <Spinner
+        android:id="@+id/spinnerUnidadesOrigen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:dropDownSelector="@color/colorPrimary"
+        android:entries="@array/unidades"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUnidadesOrigen"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinnerUnidadesDestino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:dropDownSelector="@color/colorPrimary"
+        android:entries="@array/unidades"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUnidadesDestino"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/convertir"
+        android:layout_width="167dp"
+        android:layout_height="47dp"
+        android:text="@string/convertir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewResultado"
+        android:layout_width="265dp"
+        android:layout_height="45dp"
+        android:text="@string/resultado"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
