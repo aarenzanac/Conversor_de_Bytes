@@ -2,6 +2,7 @@
 <resources>
     <string-array name="unidades">
         <item>Seleccione unidad</item>
+        <item>Bit</item>
         <item>Byte</item>
         <item>Kilobyte</item>
         <item>Megabyte</item>
