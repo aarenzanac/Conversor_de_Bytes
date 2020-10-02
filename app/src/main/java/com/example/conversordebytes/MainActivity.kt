@@ -84,16 +84,15 @@ class MainActivity : AppCompatActivity() {
                 resultado = cantidad * 8
                 textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
                 resultado = 0.00
-            }else{
-                if(origen - destino == 1){
-                    resultado = 1024.00
-                    textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
-                }else{
-                    resultado = (1024.00.pow(origen - destino))*cantidad
-                    textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
-                    resultado = 0.00
-                }
-
+            }else if(origen > 2 && destino == 1){
+                resultado = (cantidad * 8) *(1024.00.pow((origen-1)-destino))
+                textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
+                resultado = 0.00
+            }else {
+                resultado = cantidad*(1024.00.pow(origen - destino))
+                textViewResultado.text =
+                    ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
+                resultado = 0.00
             }
 
         }else{
@@ -101,9 +100,24 @@ class MainActivity : AppCompatActivity() {
                 resultado = cantidad / 8
                 textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
                 resultado = 0.00
+            }else if(origen == 1 && destino > 2){
+                var operacion: Double = 0.00        //Variables para calcular todas las divisiones. Donde se almacena el resultado de dividir cada iteracion entre 1024
+                var cantidadDivision: Double = cantidad ////Variables para calcular todas las divisiones. Temporal para el bucle for
+                for(num in origen..destino-2) {
+                    operacion = cantidadDivision / 1024.00
+                    cantidadDivision = operacion
+                }
+                resultado = cantidadDivision / 8
+                textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
+                resultado = 0.00
             }else{
-                //AQUI LA CONVERSION DESDE GEOPBYTE HASTA EL PRINCIPIO
-                resultado = cantidad.pow(origen-destino)
+                var operacion: Double = 0.00        //Variables para calcular todas las divisiones. Donde se almacena el resultado de dividir cada iteracion entre 1024
+                var cantidadDivision: Double = cantidad ////Variables para calcular todas las divisiones. Temporal para el bucle for
+                for(num in origen..destino-2) {
+                    operacion = cantidadDivision / 1024.00
+                    cantidadDivision = operacion
+                }
+                resultado = cantidadDivision
                 textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
                 resultado = 0.00
             }
