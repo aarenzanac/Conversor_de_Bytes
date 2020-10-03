@@ -1,10 +1,13 @@
 package com.example.conversordebytes
 
+import android.content.Context
+import android.net.sip.SipSession
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.core.view.get
+import androidx.recyclerview.widget.AsyncListDiffer
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.pow
 
@@ -16,6 +19,9 @@ class MainActivity : AppCompatActivity() {
     var destino: Int = -1
     var unidadDestino: String = ""
     var resultado: Double = 0.00
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,35 +53,47 @@ class MainActivity : AppCompatActivity() {
             return 0.00
         }else{
             var input: Double = textInputCantidad.text.toString().toDouble()
-            textViewResultado.setText("")
+            println("**************La cantidad introducida es: ${input} *********************")
             return input
         }
     }
 
-    fun obtenerUnidadOrigen(){
-        spinnerUnidadesOrigen.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+    private fun obtenerUnidadOrigen(){
+        origen = spinnerUnidadesOrigen.selectedItemPosition
+        unidadOrigen = spinnerUnidadesOrigen.getItemAtPosition(origen).toString()
+        /*spinnerUnidadesOrigen.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected (parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                // Toast.makeText(this@MainActivity, "Seleccionado: ${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_LONG).show()
                 origen = position
                 unidadOrigen = spinnerUnidadesOrigen.getItemAtPosition(position).toString()
+                println("**************La unidad de origen es: ${unidadOrigen} *********************")
+
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }
-
+        }*/
     }
 
-    fun obtenerUnidadDestino(){
-        spinnerUnidadesDestino.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+    private fun obtenerUnidadDestino(){
+        destino = spinnerUnidadesDestino.selectedItemPosition
+        unidadDestino = spinnerUnidadesDestino.getItemAtPosition(destino).toString()
+        /*spinnerUnidadesDestino.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
                 //Toast.makeText(this@MainActivity, "Seleccionado: ${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_LONG).show()
                 destino = position
                 unidadDestino = spinnerUnidadesDestino.getItemAtPosition(position).toString()
+                println("**************La unidad de origen es: ${unidadDestino} *********************")
             }
+
             override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }
+        }*/
     }
 
-    fun calcular(cantidad: Double, origen: Int, destino: Int){
+    private fun calcular(cantidad: Double, origen: Int, destino: Int){
 
         if(origen == destino){
             textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${cantidad} ${unidadDestino}.")
@@ -113,7 +131,7 @@ class MainActivity : AppCompatActivity() {
             }else{
                 var operacion: Double = 0.00        //Variables para calcular todas las divisiones. Donde se almacena el resultado de dividir cada iteracion entre 1024
                 var cantidadDivision: Double = cantidad ////Variables para calcular todas las divisiones. Temporal para el bucle for
-                for(num in origen..destino-2) {
+                for(num in origen..destino-1) {
                     operacion = cantidadDivision / 1024.00
                     cantidadDivision = operacion
                 }
@@ -125,6 +143,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
-//var resultado: Double = 0.00
-//textViewResultado.text = ("${cantidad} ${unidadOrigen} son igual a ${resultado} ${unidadDestino}.")

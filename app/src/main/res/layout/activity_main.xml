@@ -33,14 +33,17 @@
         app:layout_constraintEnd_toEndOf="@id/textInputLayoutCantidad"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCantidad">
+        app:layout_constraintTop_toBottomOf="@+id/textViewCantidad"
+        android:hint="@string/cantidad"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputCantidad"
             android:layout_width="146dp"
             android:layout_height="48dp"
             android:hint="@string/cantidad"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -140,16 +143,17 @@
 
     <TextView
         android:id="@+id/textViewResultado"
-        android:layout_width="265dp"
-        android:layout_height="45dp"
+        android:layout_width="266dp"
+        android:layout_height="93dp"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintVertical_bias="0.644" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
