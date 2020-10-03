@@ -1,13 +1,7 @@
 package com.example.conversordebytes
 
-import android.content.Context
-import android.net.sip.SipSession
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.*
-import androidx.core.view.get
-import androidx.recyclerview.widget.AsyncListDiffer
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.pow
 
@@ -61,36 +55,11 @@ class MainActivity : AppCompatActivity() {
     private fun obtenerUnidadOrigen(){
         origen = spinnerUnidadesOrigen.selectedItemPosition
         unidadOrigen = spinnerUnidadesOrigen.getItemAtPosition(origen).toString()
-        /*spinnerUnidadesOrigen.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected (parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-               // Toast.makeText(this@MainActivity, "Seleccionado: ${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_LONG).show()
-                origen = position
-                unidadOrigen = spinnerUnidadesOrigen.getItemAtPosition(position).toString()
-                println("**************La unidad de origen es: ${unidadOrigen} *********************")
-
-            }
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }*/
     }
 
     private fun obtenerUnidadDestino(){
         destino = spinnerUnidadesDestino.selectedItemPosition
         unidadDestino = spinnerUnidadesDestino.getItemAtPosition(destino).toString()
-        /*spinnerUnidadesDestino.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                //Toast.makeText(this@MainActivity, "Seleccionado: ${parent?.getItemAtPosition(position).toString()}", Toast.LENGTH_LONG).show()
-                destino = position
-                unidadDestino = spinnerUnidadesDestino.getItemAtPosition(position).toString()
-                println("**************La unidad de origen es: ${unidadDestino} *********************")
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
-        }*/
     }
 
     private fun calcular(cantidad: Double, origen: Int, destino: Int){
