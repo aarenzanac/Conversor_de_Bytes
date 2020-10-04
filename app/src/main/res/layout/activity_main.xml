@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_background"
+    android:theme="@style/Theme.MaterialComponents"
     tools:context=".MainActivity">
 
     <TextView
@@ -25,24 +25,29 @@
         app:layout_constraintVertical_bias="0.053" />
 
     <com.google.android.material.textfield.TextInputLayout
+
         android:id="@+id/textInputLayoutCantidad"
-        android:layout_width="409dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="146dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:gravity="center_horizontal"
-        app:layout_constraintEnd_toEndOf="@id/textInputLayoutCantidad"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:hint="@string/cantidad"
+        app:boxStrokeColor="@android:color/darker_gray"
+        app:hintTextColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCantidad"
-        android:hint="@string/cantidad"
-        >
+        android:focusedByDefault="false">
 
         <com.google.android.material.textfield.TextInputEditText
+
             android:id="@+id/textInputCantidad"
-            android:layout_width="146dp"
-            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:textColor="@android:color/black"
             android:hint="@string/cantidad"
-            android:inputType="numberDecimal" />
+            android:textColorHint="@android:color/darker_gray"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,26 +103,23 @@
         app:layout_constraintVertical_bias="0.029" />
 
     <Spinner
+        android:theme="@style/AppTheme"
         android:id="@+id/spinnerUnidadesOrigen"
-        android:layout_width="wrap_content"
+        android:layout_width="212dp"
         android:layout_height="wrap_content"
-        android:dropDownSelector="@color/colorPrimary"
         android:entries="@array/unidades"
         android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUnidadesOrigen"
-        app:layout_constraintVertical_bias="0.0"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUnidadesOrigen" />
 
     <Spinner
+        android:theme="@style/AppTheme"
         android:id="@+id/spinnerUnidadesDestino"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:dropDownSelector="@color/colorPrimary"
         android:entries="@array/unidades"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

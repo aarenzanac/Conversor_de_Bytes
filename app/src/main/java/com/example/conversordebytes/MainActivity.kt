@@ -1,13 +1,15 @@
 package com.example.conversordebytes
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.conversordebytes.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
 
-    var cantidad: Double = 0.00;
+    var cantidad: Double = 0.00
     var origen: Int = -1
     var unidadOrigen: String = ""
     var destino: Int = -1
@@ -41,12 +43,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun obtenerCantidad(): Double{
+    private fun obtenerCantidad(): Double{
         if(textInputCantidad.text.isNullOrBlank() || textInputCantidad.text.toString().toDouble() == 0.00 ){
             textViewResultado.setText("Debe introducir una cantidad a convertir.")
             return 0.00
         }else{
-            var input: Double = textInputCantidad.text.toString().toDouble()
+            val input: Double = textInputCantidad.text.toString().toDouble()
             println("**************La cantidad introducida es: ${input} *********************")
             return input
         }
