@@ -32,12 +32,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="@string/cantidad"
+        android:textColorHint="@android:color/darker_gray"
         app:boxStrokeColor="@android:color/darker_gray"
         app:hintTextColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCantidad"
-        android:focusedByDefault="false">
+        android:focusedByDefault="false"
+        android:animateLayoutChanges="true">
 
         <com.google.android.material.textfield.TextInputEditText
 
@@ -46,7 +48,7 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:textColor="@android:color/black"
-            android:hint="@string/cantidad"
+
             android:textColorHint="@android:color/darker_gray"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -113,7 +115,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewUnidadesOrigen" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewUnidadesOrigen"/>
 
     <Spinner
         android:theme="@style/AppTheme"
