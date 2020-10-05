@@ -7,4 +7,10 @@
     <string name="a">A :</string>
     <string name="convertir">Convertir</string>
     <string name="resultado">Resultado</string>
+    <string name="errorOrigen">Debe seleccionar una unidad de origen.</string>
+    <string name="errorDestino">Debe seleccionar una unidad de destino.</string>
+    <string name="errorCantidad">Debe introducir una cantidad a convertir.</string>
+    <string name="igualA">es igual a </string>
+
+
 </resources>
