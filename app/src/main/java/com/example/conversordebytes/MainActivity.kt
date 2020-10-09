@@ -1,9 +1,9 @@
 package com.example.conversordebytes
 
 
-import androidx.appcompat.app.AppCompatActivity
+import android.icu.text.DecimalFormat
 import android.os.Bundle
-import com.example.conversordebytes.R
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.math.pow
 
@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
         if(textInputCantidad.text.isNullOrBlank() || textInputCantidad.text.toString().toDouble() == 0.00 ){
             textViewResultado.setText("Debe introducir una cantidad a convertir.")
             return 0.00
+        }else if(textInputCantidad.text.toString().toDouble() < 0){
+            textViewResultado.setText("Debe introducir un número positivo mayor que 0.") //El tipo de teclado no deja meter número negativos
+            return 0.00
         }else{
             val input: Double = textInputCantidad.text.toString().toDouble()
             println("**************La cantidad introducida es: ${input} *********************")
@@ -74,13 +77,12 @@ class MainActivity : AppCompatActivity() {
                 textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
                 resultado = 0.00
             }else if(origen > 2 && destino == 1){
-                resultado = (cantidad * 8) *(1024.00.pow((origen-1)-destino))
+                resultado = (cantidad * 8) *(1024.00.pow((origen - 1) - destino))
                 textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
                 resultado = 0.00
             }else {
                 resultado = cantidad*(1024.00.pow(origen - destino))
-                textViewResultado.text =
-                    ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
+                textViewResultado.text = ("${cantidad} ${unidadOrigen} es igual a ${resultado} ${unidadDestino}.")
                 resultado = 0.00
             }
 

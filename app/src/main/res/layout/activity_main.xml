@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Theme.MaterialComponents"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bg_color"
+    >
 
     <TextView
         android:id="@+id/textViewCantidad"
@@ -32,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="@string/cantidad"
-        app:boxStrokeColor="@android:color/darker_gray"
+        app:boxStrokeColor="@android:color/black"
         app:hintTextColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,9 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:textColor="@android:color/black"
-            android:hint="@string/cantidad"
-            android:textColorHint="@android:color/darker_gray"/>
+            android:textColor="@android:color/black"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
